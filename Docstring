@@ -1,0 +1,28 @@
+#Docstrings: Tanımlanan fonksiyona döküman eklemektir yani o fonksiyon nasıl çalışıyor girdileri ve çıktıları kuralları nedir gibi bilgiler içermektedir. 
+# amacı diğer kullanıcıların da bu fonksiyonu kullandıkarında ya da kullanmak istediklerinde ne işe yaradığını görebilmeleridir
+# kural üç tırnak işareti konur sonra fonksiyon ne işe yarar yazılır
+# sonra parametretler ve tipleri ne işe yaradıkları yazılır
+# Returnü yani çıktısı ne ise bunu yazarız
+# Birden fazla yolu vardır en yaygını numpy ve googledrr
+# ayarlar bölümünden toolsta docstring kısmından yazım türünü değiştirebiliriz
+#Örnek:  girilen iki sayıyı çarpan bir fonk
+
+def hesapla(x,y):
+    """
+    İki sayinin carpimi #numpy docs yazim kurali
+
+    Params:
+        x: int,float
+        y: int,float
+
+    Returns:  
+        int,float
+    Example:
+        x=3 
+        y=2
+       return  2*3=6 
+    """
+    print(x*y)
+hesapla()
+
+#konsol bölümüne ?hesapla dersek bize doc verir
