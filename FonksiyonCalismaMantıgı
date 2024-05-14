@@ -1,0 +1,12 @@
+# pycharm kullanırken bir fonk, komutun nasıl çalıştığını örn ?print() şeklinde sorup öğrenebilriiz.
+# kullanılan fonk hepsinin dökümanı vardır buna docstring denir
+# fonksiyon girdilerden çıktı yaratır budur
+# PEP8 kod yazma kuralları ve önerileridir.
+# Kod yazım hatasında hatanın üzerinde durduğumuzda reformat the file a tıklarsak hatayı kendisi düzeltir
+# ya da Ignore errors like thisle bu tarz hataları görmezden gel diyebiliriz
+
+#Girilen sayıları 3 ile çarpan fonk oluşturalım
+
+def hesapla(x): #fonk, fonksiyonun adı, fonk parametresi
+    print(x*3)  #girileni 3 ile çarp yazdır
+hesapla(2)  # bu fonk getir 2 yi içerde uygula
