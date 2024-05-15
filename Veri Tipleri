@@ -1,0 +1,40 @@
+# Python Alıştırmalar
+###############################################
+
+###############################################
+# Veri yapılarının tipleriniz inceleyiniz.
+###############################################
+
+x = 8 #int
+
+
+y = 3.2 #float
+
+
+z = 8j + 18 #complex
+
+
+a = "Hello World" #string
+
+
+b = True #boolean
+
+
+c = 23 < 22 # boolean
+
+
+
+l = [1, 2, 3, 4,"String",3.2, False] #list
+
+
+
+d = {"Name": "Jake",
+     "Age": [27,56],
+     "Adress": "Downtown"} #dictionary
+
+
+t = ("Machine Learning", "Data Science") #tuple
+
+
+
+s = {"Python", "Machine Learning", "Data Science","Python"} #set
