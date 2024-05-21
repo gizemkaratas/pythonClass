@@ -1,0 +1,347 @@
+numpy ,
+pandas
+matplotlib seaborn
+gelişmiş fonksiyonel keşifçi veri analizi 
+
+NUMPY
+Numerical python kısaltması  matematik ,istatistiksel hesaplama için  oluşturulmuş kütüphane 
+listeden farkı: vektörel işlem yapar, daha verimli veri saklar, listeye göre çok daha hızlıdır. numpyda örn sadece int tutulur tek bir veri tipi tutar her türden veri olmaz ama liste öyle değildir hepsini tutabiklir bu sebeple de arka planda tuttuğu verinin bilgisini de tutmak zorundadır. numpy değildir, hızlıdır.Vektöreldir örneğin
+
+import numpy as np
+
+a=[1,2,3]
+b=[2,5,9]
+
+ab=[]
+
+for i range0,len(a)):
+	ab.append(a[i]*b[i]) #normalde python list ile iki listenin karşılıklı çarpılmasını bu şekilde yaparız ama numpyın vektörel olması yararıyla
+
+a=np.array([1,2,3])
+b=np.array([2,3,4]) neden böyle yapıldı sor
+a*b direkt sonucu verir
+
+Numpy Arrayleri 
+
+numpya ait veri tipleri vardır buna ndarray denir
+
+import numpy as np
+
+np.array([1,2,3]) 
+np.zeros(12,dtype=int)# 12 tane 0 yaz
+np.random.randint(0,10,size=10) #0 dan 10 a kadar 10 sayı yaz random
+np.random.normal(10,4,(3,4)) # satırlık 4 sütunluk bir matris ver ort 10 std 4 olsun
+
+NumPy Array Özellikleri
+
+a= np.random.randint(10, size=5)#random 0 dan 10 a kadar 5 elemanlı array oluşturb 
+a.ndim #boyut bilgisibi verir =1
+a.shape #boyut ve o boyuta ait eleman sayısı satır sütun sayısı
+a.size #toplam eleman sayısı
+a.dtype #tipi
+
+Reshaping Yeniden Şekillendirme
+
+array boyutunu değiştirmek için kullanılır
+
+elimizde 9 elemanlı bir tek boyutlu array var bunu 3er elemanlı 3 boyutlu bir matrise
+
+ar.reshape(3,3) 
+
+Index Seçimi (Index Selection)
+
+a= np.random.randint(10, size=10
+a[0]
+a[0:5] dilimlemeli indexi aldı 
+a[0]=999 dersen 0. index 999 olur değişit
+ 
+Örneğin m 3,5 bir matris olsun
+
+m[0,0] 0. satır 0. sütun elemanı (indexler 0 dan başlıyor hem satır hem sütunda)
+m[1,1] 1. satırdaki 1. eleman 
+m[2,3]=99 gider bu indexe 99 atar
+m[1,2]=2,12 yazsak bunun sadece int kısmını alırdı 2 yi atardı
+m[:,0]= tüm satırları seç ve 0. sütunu seç dersek ilk column gelir
+m[0:2,0:3] 0 den 2 sütunu al 0 dan 3 sütunu al bana getir
+
+
+Fancy Index
+
+v= np.arange(0,30,3) # 0 dan 30 a kadar 3 er 3 er artacak array 0 ,3,6 gibi
+v[1] # 1. index ne?
+v[4] #4. index ne?
+#fancy index birden fazla bilgisi girme durumunda kullanılabilir otomatik yapacak
+ 
+#örneğin 
+v= np.arange(0,30,3)
+a=[1,2,3] #index listesi
+v[a] #v arrayin a indexleri nedir? 0,3,6
+
+NumPy Koşullu İşlemler
+
+v= np.arange(0,30,3)
+v<3
+v[] #ne yaptık? girilen array için git bak içindeki 3 ten küçüklere true değillere false de dedik yani. burd numpyda direkt boolean yazdırdık.  peki 3 ten küçük olanları bi list olarak verseydi: 
+v= np.arange(0,30,3)
+v<3
+v[v<3] ile yapabilirdik aray içine koşul girersen yaparrr bu fancydir bu fancy
+
+#Matematiksel İşlemler(Mathematical Operations)
+
+v=np.array([1,2,3,4])
+v/5 #hepsini 5 e böler
+
+np.mean
+np.add(v,1)  vye 1 ekle gibi bu tarz işlemleri npde yaptırabilirix
+np.min(v) #bu değer sadece yazdırılır ama bunu atama yapmak için v=np.min(v) kullanabilirz
+daha komplike sorunları da çözebilir
+
+
+#İki bilinmeyenli denklemde kullanılabilir 
+# Nasıl? 
+
+5x1+6x2=12
+7x1+8x2=25
+
+bunu numpy arrayde nasıl yazcaz
+a= denklem katsayılarını tutan array x1 katsayılar,x2 katsayıları
+b= sonuçlarını tutan array 1. denklem sonucu,2. denklem sonucu
+
+a=np.array([5,7],[6,8])
+b=np.array([12,25])
+
+np.linalg.solve(a,b)
+
+QUIZ 
+
+3. SORUYU ANLAMADIM 2. DERECEDEN DENKLEM TANIMLAMA VE OKUMA KONUSUNU ANLAMAMIŞIM NUMPY MATEMATİKSEL İŞLEMLERİ TEKRAR DİNLE
+
+PANDAS
+
+VERİ MANİPÜLASYONU VE ANALİZİ İÇİN KULLANILIR BİR ÇOK VERİ YAPISINI TUTABİLİR
+
+#Pandas Series
+
+s=pd.Series[1,5,48,68,25]) girersek hem indexini hem de değerini liste gibi gösterir
+0 1 
+1 5
+2 48
+3 68 .. gibi
+type(s)= bu şu cevabı verir pandas.core.series.Series fonk ihtiyacını bilmek için tipini bilmek önemlidir!
+s.index =RngeIndex(start=0,stop=5,step=1) 
+s.dtype = dtype("int64")
+
+s.ndim= pandas serileri tek boyutludur
+s.values
+
+
+Veri Okuma (Reding Data)
+
+import pandas as pd pdnin üstüne ctrl ile basarsak içindeki tanımlanan fonk görebilirsiniz
+
+df=read_csv("dosya_adı")(proje dosyasının yerini pycharmda dosyaya sağ tık yapıp kopyalanabilir)
+df.head() 
+
+
+Veriye Hızlı Bakış 
+
+import pandas as pd
+import seaborn as sns =içinde yaygın kullanılan veri setleri var bunları tutar csv yüklemeye gerek kalmaz örn titanic veri setini tutar süper bi şi
+
+df=sns.load_dataset("titanic") 
+df.head() ilk 5 değer
+df.tail() son 5 değer
+df.shape  satır sütun sayısı
+df.info() tip, doluluk oranı vs veri tipi
+object=kategorik değişken aynı şey
+df.colums
+df.index
+df.describe().T (transpozunu aldık veriyi daha okunabilir hale gelir, describe istatistiksel bilgi verir.
+df.isnull().values.any() bu veri setinde eksik bi değer var mı demek true false cevap veirir values numpy arrayine dönüştürür içinde hepsi false diyelim bir true varsa cevap truedir yami içinde hiç başka cevap var mı dedik 
+df.isnull().sum() her değişkende kaç eksik bilgi var ?
+df["sex"].head()
+
+
+PANDAS Seçim İşlemleri 
+
+import pandas as pd
+import seaborn as sns
+
+df=sns.load_dataset("titanic")
+df.head()
+
+
+df.index
+df[0:13]
+df.drop(0,axis=0).head() silme işlemi satır mı sütün mu axis satır 0. indexi sil gözlemlemek için head attık kaydetmedik.
+
+Nasıl kalıcı olarak sileriz atama yapmadan
+
+inplace=True 
+
+DEĞİŞKENİ İNDEXE ÇEVİRMEK
+
+df.index
+
+df["age"] = df.index  yaş değişkeni ndexe çevirdi??
+
+
+
+diyelim ki kolonların tamamı gözükmüyor çıktıda bir çok … var hepsini görebilmek için pandas ayarı yapmalıyız:
+
+pd.set_option("display.max_columns",None) max column gösterme ayarını iptal et dedik
+
+"age" in df = dfde age değişkeni var mı
+df["age"].head() kullanılamaz neden? tek köşeli parantez kullandık bu dataframeden çıkmasına neden oldu ???
+df[["age"]].head() kullanabiliriz 
+
+df["age2"]=df["age"]**2 df ye age2 değişkenini ekle ekleyeceğin değerlerde agenin karesi olsun
+df.drop("age2",axis=1).head() age2 değişkenini sil bana göster 
+
+diyelim ki string ifadeyi komple silmek istiyorum
+
+Loc Iloc
+
+seçim işlemlerinde kullanılır index=integer base ek kullanılır. Iloctada label vererek yaparsın index vererej kullanılır ilocta sadece integer belirtilebilir. mesela "age" yi getir diyemezsin ama locta diyebilirsin
+
+Iloc integer based selection
+
+df.iloc[0:3] 0 dan 3 e kadar 0,1,2 ları ver. kod çıktısında / varsa kodun aşağısında devamı olduğunu gösterir.
+LOC  label based sellection
+
+df.loc[0:3] 0,1,2,3 3 dahil elemanları getirir ama iloc 3 ü almaz
+df.loc[0:3,"age"] 
+
+KOŞULLU SEÇİM
+
+
+df[df["age"]<50].["age"].count() ageyi tekrar belirtmemizin sebebi özel olarak sadece o sütunu saymasını istememiz içinde 50 den küçük kaç sayı var
+ den küçük kaç ifade var say getir
+
+yaşı 50 den küçüklerin sex bilgisi gelsin yaşı da göstersin
+
+df.loc[df["age"<50,["age","class"]].head()
+
+yaşı 50 den küçük ve sex bilgisi male olanları yaşlarıyla beraber getir:
+
+df.loc[(df["age"]<50)&(df["sex"]=="male"),["age","class"]].head()
+
+yaşı 50 den küçük ve sex bilgisi male olanları embark_townu cherboug ya da sounthampton olanları getir
+
+
+df.loc[(df["age"]<50)&(df["sex"]=="male")&((df["embark_town"]=="chebourg")| (df["mbark_town]=="Southampton")),
+
+,["age","class","embark_town"]]
+
+| bu işaret ya da demek pip işareti
+
+
+TOPLULAŞTIRMA VE GRUPLAMA
+
+count
+first
+last
+mean
+median
+min
+max
+std 
+sum
+pivot table
+bunlar toplulaştırma kodlarından bazıları
+
+örneğin kadın yaş ort erkek yaş ort ne gruplama ile yapılır
+
+df.groupby("sex")["age"].mean() ya da
+
+df.groupby("sex").agg({"age":"mean"}) kullanılabilir bunun kullanılması önerilir çünkü birden fazla ister girebiliriz 
+
+kırılım ekleme:
+
+df.groupby(["sex","embark","class"]).agg({"age":["mean"],"survived":"mean"}) tam dinlemedim
+
+PİVOT TABLE
+
+df.pivot_table("keşişimde ne görmek istiyorsun", satırda ne görcen,sütunda ne görcen")
+
+ön tanım olarak ort alır bunu değiştirebilirsin
+
+df.pivot_table("keşişimde ne görmek istiyorsun", satırda ne görcen,sütunda ne görcen,aggfunc="std")  stdsini alıp yazdırdı tabloda
+
+başka boyutları ekleyelim
+
+cut= değişkeni sınıflandırma yapılırken numeriki kategorike çevirmek için kullanılır burda
+sınıflandırma değerini bildiğimizde kullanırız örn  0-10 yaş çocuk gibi belirtirken ama böyle bir tahminimiz yoksa çeyreklere bölerek otomatik sınıflandıran bir fonk var o da qcut 
+
+df("new_age"]=pd.cut(df["age"],[sınıfları belirt örn: 0,10,18,25,40,90]
+
+yaş kırılımına göre hayatta kalma
+
+df.pivot_table("survived","sex",new_age") yaş kırılımına göre cinsiyetlerin hayatta kalma ortalaması ne? sorusunun pivotu
+
+çıktı çok çirkin  gözüküyor daha kolay güzl gözükmesi için ayar:
+
+pd.set_option("display.width",500)
+
+APPLY VE LAMBDA
+
+APPLY: SATIR VE SÜTUNA OTOMATİK FON ÇALIŞMASINI SAĞLAR??
+
+LAMBDA: KULLAN AT FONKSİYONDUR döngüde 
+
+lambdayı dinle tekrar !!
+birleştirmr işlrmini tekrar
+
+
+
+4.3 PYTHON VERİ GÖRSELLEŞTİRME
+
+MATPLOTLIB SEABORN
+
+MATPLOTLIB: VERİ GÖRSELLEŞTİRME ATASI AMA ÇOK KAPSAMLI VERİLERİ AKTARMAKTA ZORLANIR BU KONUDA SEABORN İYİDİR. GRAFİK BİÇİMLENDİRMEDE DE MATPLOBLIB KULLANILIR
+
+Kategorik değişken varsa: sütun grafik. countplot bar kullanılır
+Sayısal değişken: hişt,baxplot(aykırı değerleri de gösterir)
+
+powerbl falan daha uygun aslında pythondan veri görselleştirme için iş zekası araçları kullanılabilir. 
+
+df["sex"].value_counts().plot(kind="bar)
+plt.show()
+value_counts= kategorik değişkenlerle işlem yaptırırken aklımıza gelen ilk fonksiyon
+bar=sütun grafiğinin kısaltılmasıdır
+
+hata alıyorsak belki matplot güncel olmayabilir
+
+pip install matplotlib diyerek güncelleyebiliriz
+
+
+SAYISAL DEĞİŞKEN GÖRSELLEŞTİRME
+
+Sayısal değişkende kutu grafiği ya da histogram kullanılır. İstatistiksel grafiklerdir bunlar işe yarar o yüzden
+
+
+plt.hist(df["age"])
+plt.show()
+
+plt.boxplot(df["fare])
+plt.show()
+
+
+MATPLOTLİB ÖZELLİKLERİ 
+
+Katmanlı şekilde görselleştirme yapar. birçok başlık içerebilir.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
